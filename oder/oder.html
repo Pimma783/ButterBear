@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบฟอร์มสั่งซื้อสินค้า CSMJU 30th Anniversary Collection (Shopee-like)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind CSS configuration - Keep this in HTML for direct access
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-blue': '#0070c0',
+                        'secondary-gold': '#FFD700',
+                        'light-beige': '#F5F5DC',
+                        'dark-gray': '#333333',
+                        'soft-gray': '#E5E7EB',
+                        'light-gray-border': '#e0e0e0',
+                        'shopee-orange': '#EE4D2D', /* Shopee primary color */
+                        'shopee-gray': '#f5f5f5',
+                        'shopee-light-gray': '#eeeeee',
+                    },
+                    fontFamily: {
+                        'heading': ['"Playfair Display"', 'serif'],
+                        'body': ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/oder.css">
+</head>
+
+<body class="font-body text-dark-gray bg-light-beige min-h-screen flex flex-col items-center py-12 px-4">
+
+    <header class="w-full max-w-4xl mb-10 text-center">
+        <img src="/png/LOGO_CS30-removebg-preview.png" alt="CSMJU 30th Anniversary Logo" class="mx-auto h-24 mb-4">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold text-primary-blue mb-2">
+            แบบฟอร์มสั่งซื้อสินค้า
+        </h1>
+        <p class="text-xl text-dark-gray">CSMJU 30th Anniversary Collection</p>
+    </header>
+
+    <main class="w-full max-w-4xl bg-white p-8 md:p-12 rounded-xl shadow-lg">
+        <form id="orderForm" action="#" method="POST" enctype="multipart/form-data" class="space-y-8">
+
+            <div>
+                <label for="fullName" class="form-label">ชื่อ-นามสกุล:</label>
+                <input type="text" id="fullName" name="fullName" class="form-input" placeholder="กรุณากรอกชื่อ-นามสกุล"
+                    required>
+            </div>
+
+            <div>
+                <label for="address" class="form-label">ที่อยู่จัดส่ง:</label>
+                <textarea id="address" name="address" rows="4" class="form-textarea"
+                    placeholder="กรุณากรอกที่อยู่โดยละเอียด (บ้านเลขที่, หมู่, ซอย, ถนน, ตำบล/แขวง, อำเภอ/เขต, จังหวัด, รหัสไปรษณีย์)"
+                    required></textarea>
+            </div>
+
+            <div>
+                <label for="phoneNumber" class="form-label">เบอร์โทรศัพท์:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" class="form-input"
+                    placeholder="ตัวอย่าง: 08XXXXXXXX" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="border border-light-gray-border p-6 rounded-lg bg-shopee-gray">
+                <h2 class="text-2xl font-bold text-shopee-orange mb-4">รายการสินค้าของคุณ</h2>
+
+                <div class="mb-6">
+                    <div class="w-full mb-4">
+                        <label for="productSelector"
+                            class="block text-sm font-medium text-gray-700 mb-1">เลือกสินค้า:</label>
+                        <select id="productSelector" class="form-select">
+                            <option value="">-- เลือกสินค้า --</option>
+                        </select>
+                    </div>
+
+                    <div id="variantSelectionContainer" class="hidden grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                        <div>
+                            <label for="colorSelector" class="block text-sm font-medium text-gray-700 mb-1">สี:</label>
+                            <select id="colorSelector" class="form-select">
+                                <option value="">-- เลือกสี --</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="sizeSelector" class="block text-sm font-medium text-gray-700 mb-1">ขนาด:</label>
+                            <select id="sizeSelector" class="form-select">
+                                <option value="">-- เลือกขนาด --</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="quantityInput"
+                                class="block text-sm font-medium text-gray-700 mb-1">จำนวน:</label>
+                            <input type="number" id="quantityInput" class="form-input" value="1" min="1">
+                        </div>
+                    </div>
+
+                    <button type="button" id="addProductToCartButton"
+                        class="px-6 py-3 bg-shopee-orange text-white rounded-md font-semibold hover:bg-red-600 transition duration-300 w-full">
+                        + เพิ่มสินค้าลงตะกร้า
+                    </button>
+                </div>
+
+                <div id="cartItemsContainer" class="space-y-4 mb-6">
+                    <p id="emptyCartMessage" class="text-center text-gray-500 italic">ไม่มีสินค้าในตะกร้า</p>
+                </div>
+
+                <div class="flex justify-end items-center border-t border-light-gray-border pt-4 mt-4">
+                    <span class="text-xl font-bold text-dark-gray mr-4">รวมทั้งสิ้น:</span>
+                    <span id="grandTotal" class="text-3xl font-bold text-shopee-orange">0.00 THB</span>
+                    <input type="hidden" name="cartData" id="cartDataInput">
+                </div>
+            </div>
+
+            <div>
+                <label class="form-label">ช่องทางชำระเงิน:</label>
+                <div class="form-radio-group">
+                    <div class="form-radio-item">
+                        <input type="radio" id="bankTransfer" name="paymentMethod" value="โอนเงินผ่านธนาคาร"
+                            class="mr-2" checked>
+                        <label for="bankTransfer">โอนเงินผ่านธนาคาร</label>
+                    </div>
+                    <div class="form-radio-item">
+                        <input type="radio" id="promptPay" name="paymentMethod" value="พร้อมเพย์" class="mr-2">
+                        <label for="promptPay">พร้อมเพย์</label>
+                    </div>
+                    <div class="form-radio-item">
+                        <input type="radio" id="shopeepay" name="paymentMethod" value="ShopeePay" class="mr-2">
+                        <label for="shopeepay">ShopeePay</label>
+                    </div>
+                    <div class="form-radio-item">
+                        <input type="radio" id="spaylaster" name="paymentMethod" value="SPayLater" class="mr-2">
+                        <label for="spaylaster">SPayLater</label>
+                    </div>
+                </div>
+                <div>
+                    <label for="slipImage" class="form-label">อัปโหลดรูปสลิปการโอนเงิน:</label>
+                    <input type="file" id="slipImage" name="slipImage" accept="image/*" class="form-input p-2" required>
+                    <p class="text-sm text-gray-500 mt-2">รองรับไฟล์รูปภาพเท่านั้น (JPG, PNG)</p>
+                </div>
+
+                <div>
+                    <label for="purchaseDate" class="form-label">วันที่ซื้อ/โอนเงิน:</label>
+                    <input type="date" id="purchaseDate" name="purchaseDate" class="form-input" required>
+                </div>
+
+                <div>
+                    <label class="form-label">รูปแบบการรับสินค้า:</label>
+                    <div class="form-radio-group">
+                        <div class="form-radio-item">
+                            <input type="radio" id="delivery" name="deliveryOption" value="จัดส่ง" class="mr-2" checked>
+                            <label for="delivery">จัดส่ง</label>
+                        </div>
+                        <div class="form-radio-item">
+                            <input type="radio" id="pickup" name="deliveryOption" value="รับเอง" class="mr-2">
+                            <label for="pickup">รับเอง (ที่คณะวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้)</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="flex justify-center mt-10">
+                    <button type="submit"
+                        class="px-8 py-4 bg-primary-blue text-white rounded-full text-xl font-semibold hover:bg-blue-700 transition duration-300 transform hover:scale-105 shadow-md">
+                        ยืนยันการสั่งซื้อ
+                    </button>
+                </div>
+                <a href="/customer/index.html"class="mt-4 inline-block text-center text-primary-red hover:text-red-700 transition duration-300">
+                    ย้อนกลับไปยังหน้าหลัก
+                </a>
+            </div>
+        </form>
+    </main>
+
+    <footer class="w-full text-center text-gray-500 mt-12 pb-8">
+        <p>&copy; 2025 Computer Science, Maejo University. All rights reserved.</p>
+    </footer>
+
+    <script src="/java/oder.js"></script>
+</body>
+
+</html>

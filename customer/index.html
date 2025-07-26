@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSMJU 30anniversary</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-color': '#007bff',
+                        'secondary-bg': '#F5F5DC',
+                        'accent-color': '#FFD700',
+                        'dark-charcoal': '#333333',
+                    },
+                    fontFamily: {
+                        'heading': ['"Playfair Display"', 'serif'],
+                        'body': ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/CSS/customer.css">
+</head>
+
+<body class="text-dark-charcoal">
+
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <img src="/png/LOGO_CS30-removebg-preview.png" alt="LOGO CSMJU" class="h-16 w-auto brightness-110">
+            <nav class="hidden md:flex space-x-6">
+                <a href="#hero" class="text-dark-charcoal hover:text-primary-color transition duration-300">หน้าแรก</a>
+                <a href="#products"
+                    class="text-dark-charcoal hover:text-primary-color transition duration-300">สินค้า/รายละเอียดสินค้า</a>
+                <a href="/oder/oder.html"
+                    class="text-dark-charcoal hover:text-primary-color transition duration-300">สั่งซื้อ</a>
+                <a href="#about-us"
+                    class="text-dark-charcoal hover:text-primary-color transition duration-300">เกี่ยวกับเรา</a>
+                <a href="#contact"
+                    class="text-dark-charcoal hover:text-primary-color transition duration-300">ติดต่อ</a>
+                <a href="/index.html" class="text-dark-charcoal hover:text-primary-color transition duration-300">Stock
+                    สินค้า</a>
+            </nav>
+            <div>
+                <button class="md:hidden text-dark-charcoal hover:text-primary-color transition duration-300"
+                    id="mobile-menu-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-100 py-2 mt-2 border-t border-gray-200">
+            <a href="#hero" class="block px-4 py-2 text-dark-charcoal hover:bg-gray-200">หน้าแรก</a>
+            <a href="#products" class="block px-4 py-2 text-dark-charcoal hover:bg-gray-200">สินค้า/รายละเอียดสินค้า</a>
+            <a href="/oder/oder.html" class="block px-4 py-2 text-dark-charcoal hover:bg-gray-200">สั่งซื้อ</a>
+            <a href="#about-us" class="block px-4 py-2 text-dark-charcoal hover:bg-gray-200">เกี่ยวกับเรา</a>
+            <a href="#contact" class="block px-4 py-2 text-dark-charcoal hover:bg-gray-200">ติดต่อ</a>
+        </div>
+    </header>
+
+    <section id="hero" class="relative h-[80vh] bg-cover bg-center flex items-center justify-center text-center px-4"
+        style="background-image: url('/png/anniversary\ \(1\).png');">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="relative z-10 text-white animate-fadeInScale">
+            <h1 class="text-5xl md:text-7xl font-heading font-bold mb-4 animate-fadeInUp">
+                ความสำเร็จของท่านคือความสำเร็จของเราตลอด30ปี</h1>
+            <p class="text-xl md:text-2xl mb-8 animate-fadeInUp" style="animation-delay: 0.2s;">ของที่ระลึกทำมือ,
+                ผลิตภัณฑ์พิเศษ, ความทรงจำที่จับต้องได้</p>
+            <a href="#products"
+                class="bg-accent-color text-dark-charcoal px-8 py-3 rounded-full text-lg font-semibold hover:bg-opacity-90 transition duration-300 animate-fadeInUp"
+                style="animation-delay: 0.4s;">
+                Shop Now
+            </a>
+        </div>
+    </section>
+
+    <section id="products" class="container mx-auto px-4 py-16 reveal-on-scroll">
+        <h2 class="text-4xl font-heading font-bold text-center mb-12">สินค้า/รายละเอียดสินค้า</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden group reveal-on-scroll product-card"
+                data-delay="0">
+                <a href="/product/index.html" class="block">
+                    <img src="/png/กระเป๋าดำ.jpg" alt="กระเป๋า"
+                        class="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                </a>
+                <div class="p-4 flex flex-col justify-between h-full">
+                    <h3 class="text-xl font-semibold mb-2">กระเป๋าครบรอบ30ปี</h3>
+                    <p class="text-gray-600 text-lg">350 THB</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden group reveal-on-scroll product-card"
+                data-delay="100">
+                <a href="/productbook/index.html" class="block">
+                    <img src="/png/สมุดสีเขียว.jpg" alt="สมุด"
+                        class="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                </a>
+                <div class="p-4 flex flex-col justify-between h-full">
+                    <h3 class="text-xl font-semibold mb-2">สมุดครบรอบ30ปี</h3>
+                    <p class="text-gray-600 text-lg">100 THB</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden group reveal-on-scroll product-card"
+                data-delay="300">
+                <a href="/productpen/index.html" class="block">
+                    <img src="/png/ปากกา สีดำ.webp" alt="ปากกา"
+                        class="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                </a>
+                <div class="p-4 flex flex-col justify-between h-full">
+                    <h3 class="text-xl font-semibold mb-2">ปากกาครบรอบ30ปี</h3>
+                    <p class="text-gray-600 text-lg">90 THB</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden group reveal-on-scroll product-card"
+                data-delay="300">
+                <a href="/productร่ม/index.html" class="block">
+                    <img src="/png/ร่มน้ำเงิน.jpg" alt="ร่ม"
+                        class="w-full h-64 object-cover transform transition-transform duration-300 group-hover:scale-105">
+                </a>
+                <div class="p-4 flex flex-col justify-between h-full">
+                    <h3 class="text-xl font-semibold mb-2">ร่มครบรอบ30ปี</h3>
+                    <p class="text-gray-600 text-lg">350 THB</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="about-us" class="bg-secondary-bg py-16 reveal-on-scroll">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-12">
+            <div class="md:w-1/2 text-center md:text-left">
+                <h2 class="text-4xl font-heading font-bold mb-6">เรื่องราวตลอด30ปี</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    3 ทศวรรษที่ผ่านมา หัวใจของมหาวิทยาลัยแม่โจ้
+                    ภาควิชาวิทยาการคอมพิวเตอร์ได้ถือกำเนิดขึ้นท่ามกลางยุคที่เทคโนโลยีกำลังเริ่มต้นผลิบาน
+                    ด้วยวิสัยทัศน์อันกว้างไกลที่จะนำพลังแห่งคอมพิวเตอร์มาพัฒนาทั้งการเกษตรและอนาคตของประเทศไทย วันนี้
+                    เราภาคภูมิใจที่การเดินทางตลอด 30 ปี เต็มไปด้วยความมุ่งมั่น การเรียนรู้
+                    และการสร้างสรรค์นวัตกรรมที่ไม่เคยหยุดนิ่ง...
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    สินค้าทุกชิ้นถูกคัดสรรและออกแบบด้วยความใส่ใจ เพื่อให้เป็นตัวแทนของเรื่องราวของเราและคุณ ตลอด30ปี
+                </p>
+                <a href="#about-us-full"
+                    class="inline-block mt-6 px-6 py-2 border-2 border-primary-color text-primary-color rounded-full hover:bg-primary-color hover:text-white transition duration-300">
+                    อ่านเพิ่มเติม
+                </a>
+            </div>
+            <div class="md:w-1/2 flex justify-center reveal-on-scroll" data-delay="200">
+                <img src="/png/LOGO_CS30-removebg-preview.png" alt="Our Story"
+                    class="rounded-lg shadow-xl max-w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-dark-charcoal text-gray-400 py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-white text-xl font-semibold mb-4">ที่อยู่</h3>
+                <p class="mt-4">
+                    ที่อยู่: คณะวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้ (สาขาวิชาวิทยาการคอมพิวเตอร์)<br>
+                    ตำบลหนองหาร อำเภอสันทราย เชียงใหม่<br>
+                    เชียงใหม่ 50290
+                </p>
+            </div>
+            <div>
+                <h3 class="text-white text-xl font-semibold mb-4">ลิงก์</h3>
+                <ul>
+                    <li><a href="#hero" class="hover:text-white transition duration-300">หน้าแรก</a></li>
+                    <li><a href="#products" class="hover:text-white transition duration-300">สินค้าทั้งหมด</a></li>
+                    <li><a href="#faq" class="hover:text-white transition duration-300">คำถามที่พบบ่อย</a></li>
+                    <li><a href="#privacy" class="hover:text-white transition duration-300">นโยบายความเป็นส่วนตัว</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-white text-xl font-semibold mb-4">ติดตามเรา</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.248-1.333 1.172-1.333h2.828v-5h-3.64c-3.12 0-4.36 1.744-4.36 4.542v2.458z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M7.8 2c-2.43 0-4.4 1.97-4.4 4.4v11.2c0 2.43 1.97 4.4 4.4 4.4h8.4c2.43 0 4.4-1.97 4.4-4.4V6.4c0-2.43-1.97-4.4-4.4-4.4H7.8zm.2 2h8c1.32 0 2.4 1.08 2.4 2.4v8c0 1.32-1.08 2.4-2.4 2.4h-8c-1.32 0-2.4-1.08-2.4-2.4V6.4c0-1.32 1.08-2.4 2.4-2.4zm.8 1.8c-.3 0-.6.1-.8.4-.2.2-.4.5-.4.8v6c0 .3.1.6.4.8.2.2.5.4.8.4h6c.3 0 .6-.1.8-.4.2-.2.4-.5.4-.8v-6c0-.3-.1-.6-.4-.8-.2-.2-.5-.4-.8-.4h-6zm4.5 1.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm-5 7c.36 0 .69.13.94.39l2.45-2.45c.26-.26.59-.39.94-.39.36 0 .69.13.94.39l2.45 2.45c.26.26.39.59.39.94 0 .36-.13.69-.39.94L13.8 19.2c-.26.26-.59.39-.94.39-.36 0-.69-.13-.94-.39L9.47 16.3c-.26-.26-.39-.59-.39-.94 0-.36.13-.69.39-.94z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-white text-xl font-semibold mb-4">ติดต่อเรา</h3>
+                <p>อีเมล: info@csmju.com</p>
+                <p>โทร: 09x-xxx-xxxx</p>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 mt-8 border-t border-gray-700 pt-4">
+            <p>&copy; 2025 computer science</p>
+        </div>
+    </footer>
+
+    <script src="/java/customer.js"></script>
+</body>
+
+</html>

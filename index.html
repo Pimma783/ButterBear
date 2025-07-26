@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบจัดการสต็อกสินค้า</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #0523e4;
+      --dark-charcoal: #333333;
+      --primary-blue: #4a90e2;
+      --light-gray-bg: #f9fafb;
+    }
+
+    .bg-primary-color {
+      background-color: var(--primary-color);
+    }
+
+    .text-dark-charcoal {
+      color: var(--dark-charcoal);
+    }
+
+    #productTableBody tr:nth-child(even) {
+      background-color: var(--light-gray-bg);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 font-body text-dark-charcoal">
+  <nav class="bg-primary-color text-white p-4 shadow-lg">
+    <div class="container mx-auto flex items-center justify-between">
+      <a class="text-2xl font-bold font-heading" href="#">ระบบจัดการสต็อกสินค้า</a>
+      <div>
+          <a href="/customer/index.html" class="text-white-charcoal hover:text-primary-color transition duration-300">หน้าแรก</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mx-auto px-4 py-8">
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="text-4xl font-extrabold text-dark-charcoal">รายการสินค้า</h2>
+      <button id="showFormBtn"
+        class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition duration-300 transform hover:-translate-y-1">
+        <i class="fas fa-plus mr-2"></i> เพิ่มสินค้า
+      </button>
+    </div>
+
+    <div class="overflow-x-auto bg-white rounded-2xl shadow-xl border border-gray-200">
+      <table class="min-w-full leading-normal text-left border-collapse">
+        <thead class="bg-gray-800 text-white">
+          <tr>
+            <th class="py-4 px-6 border-b border-gray-700 text-sm font-bold uppercase tracking-wider rounded-tl-2xl">No.
+            </th>
+            <th class="py-4 px-6 border-b border-gray-700 text-sm font-bold uppercase tracking-wider">รูปภาพ</th>
+            <th class="py-4 px-6 border-b border-gray-700 text-sm font-bold uppercase tracking-wider">ชื่อสินค้า</th>
+            <th class="py-4 px-6 border-b border-gray-700 text-sm font-bold uppercase tracking-wider">รหัส</th>
+            <th class="py-4 px-6 border-b border-gray-700 text-sm font-bold uppercase tracking-wider">ขนาด</th>
+            <th class="py-4 px-6 border-b border-gray-700 text-sm font-bold uppercase tracking-wider">สี</th>
+            <th class="py-4 px-6 border-b border-gray-700 text-sm font-bold uppercase tracking-wider">จำนวนคงเหลือ</th>
+            <th class="py-4 px-6 border-b border-gray-700 text-sm font-bold uppercase tracking-wider">ราคา (บาท)</th>
+            <th class="py-4 px-6 border-b border-gray-700 text-sm font-bold uppercase tracking-wider rounded-tr-2xl">
+              จัดการ</th>
+          </tr>
+        </thead>
+        <tbody id="productTableBody" class="divide-y divide-gray-200">
+          <tr class="hover:bg-gray-100 transition duration-150 ease-in-out">
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">1</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <img src="/png/เสื้อสีขาว.jpg" alt="เสื้อยืด"
+                class="w-16 h-16 object-cover rounded-lg shadow-sm border border-gray-200">
+            </td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">เสื้อยืด</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">P100</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">S</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">ขาว</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">300</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">350</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 mr-2 edit-btn">
+                <i class="fas fa-edit"></i> แก้ไข
+              </button>
+              <button
+                class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 delete-btn">
+                <i class="fas fa-trash-alt"></i> ลบ
+              </button>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-100 transition duration-150 ease-in-out">
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">2</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <img src="/png/หมวกดำ.jpg" alt="หมวก"
+                class="w-16 h-16 object-cover rounded-lg shadow-sm border border-gray-200">
+            </td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">หมวก</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">P200</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">S</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">ดำ</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">100</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">450</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 mr-2 edit-btn">
+                <i class="fas fa-edit"></i> แก้ไข
+              </button>
+              <button
+                class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 delete-btn">
+                <i class="fas fa-trash-alt"></i> ลบ
+              </button>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-100 transition duration-150 ease-in-out">
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">3</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <img src="/png/เข็มกลัด ทอง.webp" alt="เข็มกลัด"
+                class="w-16 h-16 object-cover rounded-lg shadow-sm border border-gray-200">
+            </td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">เข็มกลัด</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">P300</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">-</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">ทอง</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">300</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">90</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 mr-2 edit-btn">
+                <i class="fas fa-edit"></i> แก้ไข
+              </button>
+              <button
+                class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 delete-btn">
+                <i class="fas fa-trash-alt"></i> ลบ
+              </button>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-100 transition duration-150 ease-in-out">
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">4</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <img src="/png/กระเป๋าดำ.jpg" alt="กระเป๋า"
+                class="w-16 h-16 object-cover rounded-lg shadow-sm border border-gray-200">
+            </td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">กระเป๋า</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">P400</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">S</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">ดำ</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">300</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">250</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 mr-2 edit-btn">
+                <i class="fas fa-edit"></i> แก้ไข
+              </button>
+              <button
+                class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 delete-btn">
+                <i class="fas fa-trash-alt"></i> ลบ
+              </button>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-100 transition duration-150 ease-in-out">
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">5</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <img src="/png/ร่มน้ำเงิน.jpg" alt="ร่ม"
+                class="w-16 h-16 object-cover rounded-lg shadow-sm border border-gray-200">
+            </td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">ร่ม</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">P500</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">S</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">น้ำเงิน</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">300</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">350</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 mr-2 edit-btn">
+                <i class="fas fa-edit"></i> แก้ไข
+              </button>
+              <button
+                class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 delete-btn">
+                <i class="fas fa-trash-alt"></i> ลบ
+              </button>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-100 transition duration-150 ease-in-out">
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">6</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <img src="/png/แก้ว เงิน.jpg" alt="แก้ว"
+                class="w-16 h-16 object-cover rounded-lg shadow-sm border border-gray-200">
+            </td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">แก้ว</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">P600</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">S</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">เงิน</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">300</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">350</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 mr-2 edit-btn">
+                <i class="fas fa-edit"></i> แก้ไข
+              </button>
+              <button
+                class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 delete-btn">
+                <i class="fas fa-trash-alt"></i> ลบ
+              </button>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-100 transition duration-150 ease-in-out">
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">7</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <img src="/png/สมุดสีเขียว.jpg" alt="สมุด"
+                class="w-16 h-16 object-cover rounded-lg shadow-sm border border-gray-200">
+            </td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">สมุด</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">P700</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">S</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">เขียว</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">100</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">450</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 mr-2 edit-btn">
+                <i class="fas fa-edit"></i> แก้ไข
+              </button>
+              <button
+                class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 delete-btn">
+                <i class="fas fa-trash-alt"></i> ลบ
+              </button>
+            </td>
+          </tr>
+          <tr class="hover:bg-gray-100 transition duration-150 ease-in-out">
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">8</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <img src="/png/ปากกา สีดำ.webp" alt="ปากกา"
+                class="w-16 h-16 object-cover rounded-lg shadow-sm border border-gray-200">
+            </td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">ปากกา</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">P800</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">-</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">ดำ</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">300</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">90</td>
+            <td class="py-3 px-6 border-b border-gray-200 text-sm">
+              <button
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 mr-2 edit-btn">
+                <i class="fas fa-edit"></i> แก้ไข
+              </button>
+              <button
+                class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md text-sm transition duration-200 delete-btn">
+                <i class="fas fa-trash-alt"></i> ลบ
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="addForm" class="bg-white rounded-2xl shadow-xl p-8 mt-12 hidden">
+      <h5 class="text-3xl font-bold mb-6 text-dark-charcoal">
+        <i class="fas fa-box-open mr-2"></i> เพิ่ม/แก้ไขสินค้า
+      </h5>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div>
+          <label for="name" class="block text-gray-700 text-base font-semibold mb-2">ชื่อสินค้า:</label>
+          <input id="name" type="text"
+            class="border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-transparent transition duration-200"
+            placeholder="เสื้อยืด, หมวก, ฯลฯ">
+        </div>
+        <div>
+          <label for="code" class="block text-gray-700 text-base font-semibold mb-2">รหัสสินค้า:</label>
+          <input id="code" type="text"
+            class="border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-transparent transition duration-200"
+            placeholder="P1001, SKU005, ฯลฯ">
+        </div>
+        <div>
+          <label for="size" class="block text-gray-700 text-base font-semibold mb-2">ขนาด:</label>
+          <input id="size" type="text"
+            class="border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-transparent transition duration-200"
+            placeholder="S, M, L, XL หรือ -">
+        </div>
+        <div>
+          <label for="color" class="block text-gray-700 text-base font-semibold mb-2">สี:</label>
+          <input id="color" type="text"
+            class="border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-transparent transition duration-200"
+            placeholder="ขาว, ดำ, น้ำเงิน, ฯลฯ">
+        </div>
+        <div>
+          <label for="stock" class="block text-gray-700 text-base font-semibold mb-2">จำนวนคงเหลือ:</label>
+          <input id="stock" type="number"
+            class="border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-transparent transition duration-200"
+            placeholder="เช่น 100, 500">
+        </div>
+        <div>
+          <label for="price" class="block text-gray-700 text-base font-semibold mb-2">ราคา (บาท):</label>
+          <input id="price" type="number" step="0.01"
+            class="border border-gray-300 p-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-primary-color focus:border-transparent transition duration-200"
+            placeholder="เช่น 350.00, 99.50">
+        </div>
+        <div class="md:col-span-2 lg:col-span-3">
+          <label for="image" class="block text-gray-700 text-base font-semibold mb-2">รูปภาพสินค้า:</label>
+          <input id="image" type="file" accept="image/*" class="block w-full text-sm text-gray-500
+                        file:mr-4 file:py-3 file:px-6
+                        file:rounded-full file:border-0
+                        file:text-base file:font-semibold
+                        file:bg-blue-50 file:text-blue-700
+                        hover:file:bg-blue-100 cursor-pointer transition duration-200">
+        </div>
+      </div>
+      <button id="saveBtn"
+        class="bg-primary-color hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg shadow-md transition duration-300 mt-8 transform hover:-translate-y-1">
+        <i class="fas fa-save mr-2"></i> บันทึกสินค้า
+      </button>
+    </div>
+  </div>
+
+  <script src="/java/Script.js"></script>
+</body>
+
+</html>
